@@ -24,10 +24,11 @@ export class LoginComponent {
 
   login() {
     const {email, password} = this.user;
+    const data = localStorage.getItem('columns');
     this.authService.login(email, password).subscribe({
       next: () => {
         this.status = 'success';
-        localStorage.setItem('columns', JSON.stringify(columns))
+        if(!data) localStorage.setItem('columns', JSON.stringify(columns))
         this.router.navigate(['/board']);
       },
       error: () => {
