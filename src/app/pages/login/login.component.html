@@ -1,0 +1,55 @@
+<div class="w-screen h-screen bg-white sm:bg-[#311E69] flex">
+  <div class="absolute w-full h-full hidden lg:block">
+    <p class="absolute left-4 top-2 text-xl text-white font-semibold shadow-xl tracking-tight">Ing. Luis FR</p>
+    <img class="absolute w-60 lg:w-[500px] left-40 bottom-1/4" src="/assets/svg/todo-board.svg" alt="bg-left" />
+  </div>
+  <div class="relative w-full sm:w-7/12 md:w-7/12 lg:w-5/12 2xl:w-5/12 m-auto lg:float-right lg:mr-40 ">
+    <div class="bg-white rounded-3xl shadow-none sm:shadow-lg py-4 px-8 md:px-10">
+      <div class="mb-4">
+        <h1 class="text-left text-[#311E69] font-bold pt-4 text-5xl font-serif">Welcome Back...</h1>
+        <h1 class="text-left text-[#9DA3BF] font-semibold py-5 text-2xl font-serif tracking-tight">Please enter your email and password</h1>
+        <form (ngSubmit)="login()" #userForm="ngForm" novalidate class="space-y-4">
+          <div class="relative">
+            <input
+              placeholder="Enter an email"
+              name="email"
+              type="text"
+              class="w-full rounded-2xl border-1 border-gray-300 mb-2"
+              #email="ngModel"
+              [(ngModel)]="user.email"
+            />
+          </div>
+          <div class="relative">
+            <input
+              placeholder="Enter password"
+              name="password"
+              type="password"
+              class="w-full rounded-2xl border-1 border-gray-300 mb-2"
+              #userPassword="ngModel"
+              [(ngModel)]="user.password"
+            />
+          </div>
+          <div class="flex flex-col lg:justify-between lg:flex-row space-x-0 lg:space-x-2">
+            <button
+              type="submit"
+              class="text-white w-full font-medium rounded text-sm px-5 py-2 focus:ring-4 bg-[#8572ED] "
+            >
+              Log In
+            </button>
+            <div class="flex lg:flex-col justify-center border-l-2 pl-3 shrink-0">
+              <p class="text-blue-600 font-light">Email test: john@mail.com</p>
+              <p class="text-gray-500 mx-4 lg:mx-0 lg:hidden">•</p>
+              <p class="text-blue-600 font-light">Password test: changeme</p>
+            </div>
+          </div>
+        </form>
+        <hr class="my-4 border-b-1 border-b-slate-400 "/>
+        <div class="flex justify-center items-center space-x-0 space-y-2 md:space-x-2 md:space-y-0 flex-col md:flex-row">
+          <a routerLink="/forgot-password" class="text-blue-600 font-light">Can't log in?</a>
+          <span class="text-gray-500 hidden md:block">•</span>
+          <a routerLink="/register" class="text-blue-600 font-light">Sign up for an account</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
