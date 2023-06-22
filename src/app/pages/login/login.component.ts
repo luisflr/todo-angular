@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 
 import { StatusRequest } from '@models/statusRequest.model';
 import { AuthService } from '@services/auth.service';
+import { columns } from 'src/app/utils/columnsMock';
 
 @Component({
   selector: 'app-login',
@@ -25,7 +26,8 @@ export class LoginComponent {
     const {email, password} = this.user;
     this.authService.login(email, password).subscribe({
       next: () => {
-        this.status = 'success'
+        this.status = 'success';
+        localStorage.setItem('columns', JSON.stringify(columns))
         this.router.navigate(['/board']);
       },
       error: () => {

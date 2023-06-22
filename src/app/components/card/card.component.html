@@ -1,0 +1,57 @@
+
+<div
+  class=" flex h-full items-start overflow-x-auto px-8 z-10"
+  cdkDropList
+  cdkDropListOrientation="horizontal"
+  (cdkDropListDropped)="dropColumn($event)"
+  [cdkDropListData]="columns"
+>
+<div class="flex items-start z-10" cdkDropListGroup  >
+  <div class="rounded-xl bg-gray-200 w-72 p-2 mr-3 shrink-0 shadow-2xl shadow-[#311E69]" *ngFor="let column of columns, index as i " cdkDrag>
+    <div class="flex justify-between py-1">
+      <input class="text-sm font-bold ml-2 outline-none bg-transparent" [(ngModel)]="column.title"/>
+      <button
+        (click)="onDeleteColumn(column)"
+        class="mr-2 border-0 outline-none text-[#311E69] hover:rotate-12 active:-rotate-12 active:scale-125"
+        >
+          <fa-icon [icon]="faXmark"></fa-icon>
+      </button>
+    </div>
+
+    <div class="text-sm my-2 min-h-[1.3rem]" cdkDropList (cdkDropListDropped)="drop($event)" [cdkDropListData]="column.todos">
+      <div
+        *ngFor="let todo of column.todos"
+        cdkDrag
+        class="flex bg-white shadow w-full px-2 rounded-lg mt-2 border-none cursor-pointer h-10 items-center justify-between"
+        [ngClass]="{
+          'hover:bg-gray-300' : !(todo.title === '')
+        }"
+      >
+        <input
+          class="bg-transparent border-0 outline-none"
+          [(ngModel)]="todo.title"
+        />
+        <button type="button" (click)="deleteToDo(i, todo.id)" class="text-[#311E69] hover:bg-[#6f409b33] px-2 py-1 active:scale-110">
+          <fa-icon [icon]="faTrash"></fa-icon>
+        </button>
+      </div>
+    </div>
+    <button
+      class="w-full rounded-lg pl-2 mb-1 py-1 bg-gray-200 text-left text-sm text-[#44546f] hover:bg-[#44546329]"
+      (click)="addTask(column.id)"
+    >
+      + Add Task
+    </button>
+  </div>
+</div>
+<button class="bg-[#6b28a1] outline-none h-12 font-semibold rounded-xl w-72 shrink-0 text-white text-left px-3 transition-all hover:bg-[#6f3ba0] active:bg-[#6300b4]" type="button" (click)="addColumn()">
+  + Add Column
+</button>
+<button
+    type="button"
+    (click)="onSaveToDos()"
+    class="absolute text-[#311E69] text-3xl rounded-full shadow-lg hover:bg-[#89669723] px-2 py-1 active:scale-110 outline-none right-9 xl:right-16 bottom-12 w-16 h-16"
+  >
+    <fa-icon [icon]="faSave"></fa-icon>
+  </button>
+</div>

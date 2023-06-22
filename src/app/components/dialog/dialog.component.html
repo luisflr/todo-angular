@@ -1,0 +1,29 @@
+<div class="flex flex-col bg-white  h-48  items-center justify-between">
+  <div class="px-3">
+    <div class="flex text-[#311E69] justify-center items-center text-6xl mt-4">
+      <p class="mb-[13px] mr-[2px]">(</p>
+        <fa-icon [icon]="faCircleExclamation"></fa-icon>
+      <p class="mb-[13px] ml-[2px]">)</p>
+    </div>
+    <div class="flex shrink-0">
+      Are you sure you want to delete the
+      '{{column.title}}'
+      column  ?
+    </div>
+  </div>
+
+  <div class="flex w-full">
+    <button
+      class="w-1/2 bg-[#311E69] text-white font-semibold hover:bg-[#6a38ff62] hover:border hover:border-[#311E69] hover:text-[#311E69]"
+      (click)="dialogRef.close()"
+    >
+      Cancel
+    </button>
+    <button
+      class="w-1/2 bg-[#311E69] text-white font-semibold hover:bg-[#6a38ff62] hover:border hover:border-[#311E69] hover:text-[#311E69]"
+      (click)="close()"
+    >
+      Ok
+    </button>
+  </div>
+</div>

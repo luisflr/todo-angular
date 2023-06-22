@@ -1,0 +1,81 @@
+<nav class="bg-gradient-to-r from-[#311E69] to-[#8e3bfa] px-10 border-b border-[#8875c257]">
+  <div class="flex flex-wrap justify-between items-center">
+    <div class="flex items-center">
+      <a routerLink="/board" class="font-extrabold text-xl text-white drop-shadow-lg mr-4">
+        TO-DO
+      </a>
+      <div class="flex items-center">
+        <ul class="flex items-center space-x-2 text-sm font-normal">
+          <li>
+            <a
+              routerLink="/boards"
+              class="block py-3 px-4 text-white hover:bg-[#a6c5e229]"
+              >Boards</a
+            >
+          </li>
+          <li>
+            <a
+              class="block py-3 px-4 text-white hover:bg-[#a6c5e229]"
+              >Recent</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="flex items-center space-x-3">
+      <button
+        type="button"
+        class="flex rounded-full"
+        aria-expanded="false"
+        type="button"
+        (click)="isOpen = !isOpen"
+        cdkOverlayOrigin
+        #menuOverlay="cdkOverlayOrigin"
+      >
+        <img
+          class="w-8 h-8 rounded-xl"
+          src="/assets/images/user.png"
+          alt="user photo"
+        />
+      </button>
+    </div>
+  </div>
+</nav>
+
+<ng-template
+  cdkConnectedOverlay
+  [cdkConnectedOverlayOrigin]="menuOverlay"
+  [cdkConnectedOverlayOpen]="isOpen"
+>
+  <div
+  class="z-50 my-4 w-60 text-base list-none bg-white rounded divide-y divide-gray-100 shadow"
+  >
+  <div class="py-3 px-4 flex justify-between">
+    <span class="block text-sm text-center text-gray-900">Account</span>
+    <button (click)="isOpen = !isOpen" class="block text-sm text-gray-900">
+      x
+    </button>
+  </div>
+  <div class="py-3 px-4 flex items-center space-x-4">
+    <img
+      class="w-10 h-10 rounded-full"
+      src="/assets/images/user.png"
+      alt=""
+    />
+    <div class="space-y-1">
+      <div>Jese Leos</div>
+      <div class="text-sm text-gray-500">nico@gmail.com</div>
+    </div>
+  </div>
+  <ul class="py-1">
+    <li>
+      <button
+        (click)="logout()"
+        class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100"
+      >
+        Log out
+      </button>
+    </li>
+  </ul>
+  </div>
+</ng-template>
