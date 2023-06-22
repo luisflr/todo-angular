@@ -14,6 +14,7 @@ import { DialogComponent } from './components/dialog/dialog.component';
 import { LoginComponent } from './pages/login/login.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { CardComponent } from './components/card/card.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { CardComponent } from './components/card/card.component';
     BoardComponent,
     DialogComponent,
     NavbarComponent,
-    CardComponent
+    CardComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

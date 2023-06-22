@@ -6,7 +6,6 @@ import { Dialog } from '@angular/cdk/dialog';
 import { faXmark, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { Column, ToDo } from '@models/todo.model';
 import { DialogComponent } from '../dialog/dialog.component';
-import { columns } from 'src/app/utils/columnsMock';
 
 @Component({
   selector: 'app-card',
