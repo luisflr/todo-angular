@@ -2,7 +2,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.0.
 
-If you want to test this project, you can go at this url: https://todo-angular-43e05.web.app/
+If you want to test this project, you can go to this url: https://todo-angular-43e05.web.app/
 
 ## Development server
 
